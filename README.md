@@ -9,6 +9,12 @@ SSDAN主要解决了包含序列信息的图片，训练样本和测试样本sty
 
 ### Introduction
 
-SSDAN可以在不同的场景下，解决训练集和测试集分布不一致的问题。
+SSDAN可以在不同的场景下，解决训练集和测试集分布不一致产生的domain shift问题。
 
 ![](https://github.com/cassie1728/SSDAN-another-way/raw/master/ssdan1.jpg)
+
+SSDAN的目标就是，利用unlabeled target text images，通过对齐源域数据与目标域数据的特征分布（feature distribution），来减缓domain shift。通过最小化measure of domain shift来训练，进行领域自适应。
+
+然而，现在的measure of domain shift，如MMD、CORAL、adversarial loss都是针对固定的特征维度，不适合处理不定长的文字序列。而SSDAN可以自动专注最相关的字符区域，不用强行把源序列信息压缩进固定长度向量，同时，使用gated attention similarity (GAS) 在字符级别的特征空间（character-level feature space），对齐源域数据与目标域数据的分布。
+
+
