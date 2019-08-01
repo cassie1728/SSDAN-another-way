@@ -9,3 +9,6 @@ SSDAN主要解决了包含序列信息的图片，训练样本和测试样本sty
 
 ### Introduction
 
+SSDAN可以在不同的场景下，解决训练集和测试集分布不一致的问题。
+
+![](https://github.com/cassie1728/SSDAN-another-way/raw/master/ssdan1.jpg)
