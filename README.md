@@ -15,6 +15,12 @@ SSDAN可以在不同的场景下，解决训练集和测试集分布不一致产
 
 SSDAN的目标就是，利用unlabeled target text images，通过对齐源域数据与目标域数据的特征分布（feature distribution），来减缓domain shift。通过最小化measure of domain shift来训练，进行领域自适应。
 
-然而，现在的measure of domain shift，如MMD、CORAL、adversarial loss都是针对固定的特征维度，不适合处理不定长的文字序列。而SSDAN可以自动专注最相关的字符区域，不用强行把源序列信息压缩进固定长度向量，同时，使用gated attention similarity (GAS) 在字符级别的特征空间（character-level feature space），对齐源域数据与目标域数据的分布。
+然而，现在的measure of domain shift，如MMD、CORAL、adversarial loss都是针对固定的特征维度，不适合处理不定长的文字序列。而SSDAN可以自动专注最相关的字符区域，不用强行把源序列信息压缩进固定长度向量，同时，使用gated attention similarity (GAS) 在字符级别的特征空间（character-level feature space），对齐源域数据与目标域数据的分布。其中，GAS使用了一种无监督的字符级别的相似性损失。
 
+### three contributions
 
+1. 可以应用到ocr的不同领域，如自然场景、手写体、数学公式
+2. 提出新的GAS单元，可以自适应地做fine-grained（细密纹理的）字符级别的知识迁移
+3. 使用无监督的序列数据来减少domain shift
+
+### 
