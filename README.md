@@ -23,4 +23,10 @@ SSDAN的目标就是，利用unlabeled target text images，通过对齐源域�
 2. 提出新的GAS单元，可以自适应地做fine-grained（细密纹理的）字符级别的知识迁移
 3. 使用无监督的序列数据来减少domain shift
 
-### 
+### Method
+
+![](https://github.com/cassie1728/SSDAN-another-way/raw/master/ssdan2.jpg)
+
+SSDAN is an attention-based sequence encoder-decoder network. 
+
+`CNN Encoder`：输入是来自源域或者目标域的图片x，输出是D维的特征向量，每一维度有L个元素，`L = H * W`,如图： 
