@@ -41,3 +41,5 @@ attention是有T步的过程，在第k个time-step，将encoding feature map F(x
 
 ![](http://latex.codecogs.com/gif.latex?s_k_,_i)是注意力得分，表示在解码第k个字母时，注意力在第i个子区域的概率。
 <div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/ssdan6.jpg"/></div>
+
+`GRU Decoder`
