@@ -32,4 +32,4 @@ SSDAN is an attention-based sequence encoder-decoder network.
 `CNN Encoder`：输入是来自源域或者目标域的图片x，输出是D维的特征向量，每一维度有L个元素，`L = H * W`,如图
 <div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/ssdan3.jpg"/></div>
 
-`Attention`：在CNN encoder和GRU decoder之间，由一个attention model链接
+`Attention`：在CNN encoder和GRU decoder之间，由一个attention model连接。作用是，找到
