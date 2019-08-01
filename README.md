@@ -35,6 +35,9 @@ SSDAN is an attention-based sequence encoder-decoder network.
 `Attention`：在CNN encoder和GRU decoder之间，由一个attention model连接。作用是，学习与解码字符最相关的文字图片区域。
 attention是有T步的过程，在第k个time-step，将encoding feature map F(x)中最能代表字符![](http://latex.codecogs.com/gif.latex?y_k)的相关部分表示为内容向量![](http://latex.codecogs.com/gif.latex?c_k)：
 <div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/ssdan4.jpg"/></div>
+
 其中![](http://latex.codecogs.com/gif.latex?\alpha_k_i)是注意力权重：
+
 <div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/ssdan5.jpg"/></div>
+
 ![](http://latex.codecogs.com/gif.latex?s_k_i)是注意力得分，表示在解码第k个字母时，注意力在第i个子区域的概率。
