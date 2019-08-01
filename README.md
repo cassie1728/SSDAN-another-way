@@ -54,4 +54,4 @@ attention是有T步的过程，在第k个time-step，将encoding feature map F(x
 <div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/ssdan8.jpg"/></div>
 其中g是softmax激活函数。通过上式求出的每个label的预测概率，就可以得到序列y的预测概率：
 <div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/ssdan9.jpg"/></div>
-其中
+其中<img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/ssdan10.jpg"/></div>可以看做输入图片x的attended character-level features的序列。
