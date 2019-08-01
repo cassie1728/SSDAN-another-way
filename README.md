@@ -37,7 +37,6 @@ attention是有T步的过程，在第k个time-step，将encoding feature map F(x
 <div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/ssdan4.jpg"/></div>
 
 其中![](http://latex.codecogs.com/gif.latex?\alpha_k_i)是注意力权重：
-
 <div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/ssdan5.jpg"/></div>
 
 ![](http://latex.codecogs.com/gif.latex?s_k_i)是注意力得分，表示在解码第k个字母时，注意力在第i个子区域的概率。
