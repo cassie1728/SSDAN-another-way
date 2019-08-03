@@ -77,13 +77,14 @@ GAS将整行文字划分为字符集，在字符级别源域和目标域共享�
 
 如果![](http://latex.codecogs.com/gif.latex?c_k\times\delta(c_k)=0),那么久不将![](http://latex.codecogs.com/gif.latex?c_k)加入新的attention context vector set中。
 
-之后使用gas loss![](http://latex.codecogs.com/gif.latex?\mathcal{L}_attn),度量源域和目标域有效字符特征集之间的距离。
+之后使用gas loss![](http://latex.codecogs.com/gif.latex?\mathcal{L}_a_t_t_n),度量源域和目标域有效字符特征集之间的距离。
 <div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/4.jpg"/></div>
 
-其中距离函数![](http://latex.codecogs.com/gif.latex?dist)使用CORAL，即通过协方差来表示。
+其中距离函数![](http://latex.codecogs.com/gif.latex?dist)使用CORAL，即通过协方差来表示。F表示F范数（相当于向量中的2范数）
 <div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/5.jpg"/></div>
 
-
+其中![](http://latex.codecogs.com/gif.latex?cov(\mathcal{U}_s))表示样本![](http://latex.codecogs.com/gif.latex?\mathcal{U}_s)的协方差矩阵。
+<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/6.jpg"/></div>
 
 
 
