@@ -61,4 +61,5 @@ attention是有T步的过程，在第k个time-step，将encoding feature map F(x
 
 #### Gated Attention Similarity Unit
 
+GAS将整行文字划分为字符集，在字符级别源域和目标域共享相同的label space，以此缓和对齐困难。
 
