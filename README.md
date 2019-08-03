@@ -1,4 +1,4 @@
-# Papers about Text Recognition No.1
+# Papers about Text Recognition No.3
 ## SSDAN-another-way
 Paper share：Sequence-to-Sequence Domain Adaptation Network for Robust Text Image Recognition
 
