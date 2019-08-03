@@ -86,5 +86,14 @@ GAS将整行文字划分为字符集，在字符级别源域和目标域共享�
 其中![](http://latex.codecogs.com/gif.latex?cov(\mathcal{U}_s))表示样本![](http://latex.codecogs.com/gif.latex?\mathcal{U}_s)的协方差矩阵。
 <div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/6.jpg"/></div>
 
-在我们的GAS单元中，![](http://latex.codecogs.com/gif.latex?\mathcal{U}_s)和![](http://latex.codecogs.com/gif.latex?\mathcal{U}_t)用![](http://latex.codecogs.com/gif.latex?\mathcal{A}\widetilde_s)
+在我们的GAS单元中，![](http://latex.codecogs.com/gif.latex?\mathcal{U}_s)和![](http://latex.codecogs.com/gif.latex?\mathcal{U}_t)用![](http://latex.codecogs.com/gif.latex?\mathcal{A\widetilde}_s)和![](http://latex.codecogs.com/gif.latex?\mathcal{A\widetilde}_t)代替。
 
+### Overall Objective Function
+
+使用负对数似然损失（交叉熵损失）作为decoding loss来衡量预测序列与源域中标注序列的不同。
+<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/7.jpg"/></div>
+
+通过最小化![](http://latex.codecogs.com/gif.latex?cov(\mathcal{L}_d_e_c))来优化源域文字图片的识别。
+
+但是，直接优化![](http://latex.codecogs.com/gif.latex?cov(\mathcal{L}_d_e_c))会导致模型过拟合源域数据分布，不能很好应用到目标域中。所以，加入注意力相似性损失（attention similarity loss），将源域和目标域的domain shift考虑进来。
+<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/8.jpg"/></div>
