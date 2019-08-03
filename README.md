@@ -77,7 +77,7 @@ GAS将整行文字划分为字符集，在字符级别源域和目标域共享�
 
 如果![](http://latex.codecogs.com/gif.latex?c_k\times\delta(c_k)=0),那么久不将![](http://latex.codecogs.com/gif.latex?c_k)加入新的attention context vector set中。
 
-
+之后使用gas loss![](http://latex.codecogs.com/gif.latex?\usepackage{mathrsfs}\mathcal{L})
 
 
 
