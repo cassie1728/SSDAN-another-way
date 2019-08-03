@@ -12,7 +12,7 @@ SSDAN主要解决了包含序列信息的图片，训练样本和测试样本sty
 
 SSDAN可以在不同的场景下，解决训练集和测试集分布不一致产生的domain shift问题。
 
-![](https://github.com/cassie1728/SSDAN-another-way/raw/master/ssdan1.jpg)
+![](https://github.com/cassie1728/SSDAN-another-way/raw/master/img/ssdan1.jpg)
 
 SSDAN的目标就是，利用unlabeled target text images，通过对齐源域数据与目标域数据的特征分布（feature distribution），来减缓domain shift。通过最小化measure of domain shift来训练，进行领域自适应。
 
@@ -26,24 +26,24 @@ SSDAN的目标就是，利用unlabeled target text images，通过对齐源域�
 
 ### Method
 
-![](https://github.com/cassie1728/SSDAN-another-way/raw/master/ssdan2.jpg)
+![](https://github.com/cassie1728/SSDAN-another-way/raw/master/img/ssdan2.jpg)
 
 SSDAN is an attention-based sequence encoder-decoder network. 
 
 #### Attentive Text Recognition
 
 `CNN Encoder`：输入是来自源域或者目标域的图片x，输出是D维的特征向量，每一维度有L个元素，`L = H * W`,如图
-<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/ssdan3.jpg"/></div>
+<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/img/ssdan3.jpg"/></div>
 
 `Attention`：在CNN encoder和GRU decoder之间，由一个attention model连接。作用是，学习与解码字符最相关的文字图片区域。
 attention是有T步的过程，在第k个time-step，将encoding feature map F(x)中最能代表字符![](http://latex.codecogs.com/gif.latex?y_k)的相关部分表示为内容向量![](http://latex.codecogs.com/gif.latex?c_k)：
-<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/ssdan4.jpg"/></div>
+<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/img/ssdan4.jpg"/></div>
 
 其中![](http://latex.codecogs.com/gif.latex?\alpha_k_,_i)是注意力权重：
-<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/ssdan5.jpg"/></div>
+<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/img/ssdan5.jpg"/></div>
 
 ![](http://latex.codecogs.com/gif.latex?s_k_,_i)是注意力得分，表示在解码第k个字母时，注意力在第i个子区域的概率。
-<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/ssdan6.jpg"/></div>
+<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/img/ssdan6.jpg"/></div>
 
 `GRU Decoder`：使用GRU作为decoder预测字符。
 
@@ -52,12 +52,12 @@ attention是有T步的过程，在第k个time-step，将encoding feature map F(x
 中文译文：https://www.jiqizhixin.com/articles/2017-12-24
 
 在第k个time step，当前隐状态可以表示为
-<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/ssdan7.jpg"/></div>
+<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/img/ssdan7.jpg"/></div>
 
 下一步计算当前预测字符![](http://latex.codecogs.com/gif.latex?y_k)的概率：
-<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/ssdan8.jpg"/></div>
+<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/img/ssdan8.jpg"/></div>
 其中g是softmax激活函数。通过上式求出的每个label的预测概率，就可以得到序列y的预测概率：
-<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/ssdan9.jpg"/></div>
+<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/img/ssdan9.jpg"/></div>
 其中<img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/ssdan10.jpg"/></div>可以看做输入图片x的attended character-level features的序列。
 
 #### Gated Attention Similarity Unit
@@ -69,34 +69,34 @@ GAS将整行文字划分为字符集，在字符级别源域和目标域共享�
 如果attention context vector不能聚焦到有效的字符区域，那么自适应操作就没有什么帮助了。为了解决这个问题，提出GAS，一种门控机制，它可以筛选对自适应有效的attention context vector.
 
 我们提出适应门函数![](http://latex.codecogs.com/gif.latex?\delta(c_k)),用来判断内容向量![](http://latex.codecogs.com/gif.latex?c_k)能否加入有效字符中。![](http://latex.codecogs.com/gif.latex?p_k)是置信度。
-<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/1.jpg"/></div>
+<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/img/1.jpg"/></div>
 
 这样我们得到针对特定输入图片x的门控函数集合![](http://latex.codecogs.com/gif.latex?G(x))，再与![](http://latex.codecogs.com/gif.latex?A(x))对应元素相乘，得到更新后的attention context set。
-<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/2.jpg"/></div>
-<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/3.jpg"/></div>
+<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/img/2.jpg"/></div>
+<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/img/3.jpg"/></div>
 
 如果![](http://latex.codecogs.com/gif.latex?c_k\times\delta(c_k)=0),那么久不将![](http://latex.codecogs.com/gif.latex?c_k)加入新的attention context vector set中。
 
 之后使用gas loss![](http://latex.codecogs.com/gif.latex?\mathcal{L}_a_t_t_n),度量源域和目标域有效字符特征集之间的距离。
-<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/4.jpg"/></div>
+<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/img/4.jpg"/></div>
 
 其中距离函数![](http://latex.codecogs.com/gif.latex?dist)使用CORAL，即通过协方差来表示。F表示F范数（相当于向量中的2范数）
-<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/5.jpg"/></div>
+<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/img/5.jpg"/></div>
 
 其中![](http://latex.codecogs.com/gif.latex?cov(\mathcal{U}_s))表示样本![](http://latex.codecogs.com/gif.latex?\mathcal{U}_s)的协方差矩阵。
-<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/6.jpg"/></div>
+<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/img/6.jpg"/></div>
 
 在我们的GAS单元中，![](http://latex.codecogs.com/gif.latex?\mathcal{U}_s)和![](http://latex.codecogs.com/gif.latex?\mathcal{U}_t)用![](http://latex.codecogs.com/gif.latex?\mathcal{A\widetilde}_s)和![](http://latex.codecogs.com/gif.latex?\mathcal{A\widetilde}_t)代替。
 
 ### Overall Objective Function
 
 使用负对数似然损失（交叉熵损失）作为decoding loss来衡量预测序列与源域中标注序列的不同。
-<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/7.jpg"/></div>
+<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/img/7.jpg"/></div>
 
 通过最小化![](http://latex.codecogs.com/gif.latex?cov(\mathcal{L}_d_e_c))来优化源域文字图片的识别。
 
 但是，直接优化![](http://latex.codecogs.com/gif.latex?cov(\mathcal{L}_d_e_c))会导致模型过拟合源域数据分布，不能很好应用到目标域中。所以，加入注意力相似性损失（attention similarity loss），将源域和目标域的domain shift考虑进来。
-<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/8.jpg"/></div>
+<div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/img/8.jpg"/></div>
 
 整个模型的参数就可以，通过SGD优化器来做全局的优化。
 
