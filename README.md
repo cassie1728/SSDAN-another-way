@@ -71,11 +71,11 @@ GAS将整行文字划分为字符集，在字符级别源域和目标域共享�
 我们提出适应门函数![](http://latex.codecogs.com/gif.latex?\delta(c_k)),用来判断内容向量![](http://latex.codecogs.com/gif.latex?c_k)能否加入有效字符中。![](http://latex.codecogs.com/gif.latex?p_k)是置信度。
 <div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/1.jpg"/></div>
 
-这样我们得到针对特定输入图片x的门控函数集合![](http://latex.codecogs.com/gif.latex?G(x))，与![](http://latex.codecogs.com/gif.latex?A(x))对应元素相乘，得到更新后的attention context set。
+这样我们得到针对特定输入图片x的门控函数集合![](http://latex.codecogs.com/gif.latex?G(x))，再与![](http://latex.codecogs.com/gif.latex?A(x))对应元素相乘，得到更新后的attention context set。
 <div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/2.jpg"/></div>
 <div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/3.jpg"/></div>
 
-
+如果![](http://latex.codecogs.com/gif.latex?c_k \times \delta(c_k) = 0),那么久不将![](http://latex.codecogs.com/gif.latex?c_k)加入新的attention context vector set中。
 
 
 
