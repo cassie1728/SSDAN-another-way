@@ -68,7 +68,7 @@ GAS将整行文字划分为字符集，在字符级别源域和目标域共享�
 
 如果attention context vector不能聚焦到有效的字符区域，那么自适应操作就没有什么帮助了。为了解决这个问题，提出GAS，一种门控机制，它可以筛选对自适应有效的attention context vector.
 
-
+我们提出适应门函数![](http://latex.codecogs.com/gif.latex?\delta(c_k))
 
 
 
