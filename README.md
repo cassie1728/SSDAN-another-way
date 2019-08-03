@@ -63,3 +63,7 @@ attention是有T步的过程，在第k个time-step，将encoding feature map F(x
 
 GAS将整行文字划分为字符集，在字符级别源域和目标域共享相同的label space，以此缓和对齐困难。
 
+通过attention mechanism，输入图片x分解为了一系列的字符级特征集合A(x)，其中![](http://latex.codecogs.com/gif.latex?c_k)表示图片x的第k个字符特征。
+
+
+
