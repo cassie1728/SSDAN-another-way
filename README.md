@@ -97,3 +97,11 @@ GAS将整行文字划分为字符集，在字符级别源域和目标域共享�
 
 但是，直接优化![](http://latex.codecogs.com/gif.latex?cov(\mathcal{L}_d_e_c))会导致模型过拟合源域数据分布，不能很好应用到目标域中。所以，加入注意力相似性损失（attention similarity loss），将源域和目标域的domain shift考虑进来。
 <div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/8.jpg"/></div>
+
+整个模型的参数就可以，通过SGD优化器来做全局的优化。
+
+## 总结
+
+SSDAN利用了没有标注的测试数据，将其加入模型一起训练，通过character-level的自适应处理解决domain shift的问题，将迁移学习应用到文字识别模型中。
+
+但是，字符级别的匹配适用于英文数字等字符集较少的情况，对于成千上万个字符的中文汉字识别则较为困难。不过，也不一定不行，可以尝试。
