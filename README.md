@@ -86,5 +86,5 @@ GAS将整行文字划分为字符集，在字符级别源域和目标域共享�
 其中![](http://latex.codecogs.com/gif.latex?cov(\mathcal{U}_s))表示样本![](http://latex.codecogs.com/gif.latex?\mathcal{U}_s)的协方差矩阵。
 <div align=center><img src="https://github.com/cassie1728/SSDAN-another-way/raw/master/6.jpg"/></div>
 
-
+在我们的GAS单元中，![](http://latex.codecogs.com/gif.latex?\mathcal{U}_s)和![](http://latex.codecogs.com/gif.latex?\mathcal{U}_t)用![](http://latex.codecogs.com/gif.latex?\mathcal{A}\widetilde_s)
 
