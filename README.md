@@ -47,7 +47,7 @@ attention是有T步的过程，在第k个time-step，将encoding feature map F(x
 `GRU Decoder`：使用GRU作为decoder预测字符。
 
 关于GRU知识可以参考：https://towardsdatascience.com/understanding-gru-networks-2ef37df6c9be 
-<\br>
+<br>
 中文译文：https://www.jiqizhixin.com/articles/2017-12-24
 
 在第k个time step，当前隐状态可以表示为
